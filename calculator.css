@@ -1,0 +1,106 @@
+body{
+   
+    background-image: linear-gradient(to right, #000000, #323841);
+    text-align: center;
+    justify-content: center;
+}
+div.container{
+    width: 50%;
+    height: 500%;
+    padding-top: 5%;
+    border: none;
+}
+div.box{
+    width: 510px;
+    height: 780px;
+    padding-top: 10px;
+    background-color: rgba(0, 0, 0, 0.336);
+    text-align: center;
+    border: 1px solid #717377;
+    border-radius: 20px;  
+    box-shadow: 0px 3px 15px #71737780; 
+}
+div.box:hover{
+    box-shadow: 0px 3px 15px #727272; 
+}
+button{
+    width: 70px;
+    height: 70px;
+    margin: 12px;
+    font-size: 20px;
+}
+button:hover{
+    font-weight: bold;
+    background-image: linear-gradient(to left, cyan, blue, magenta, red, magenta, blue, cyan);
+    background-size: 400% 400%;
+    animation: animate 6s linear infinite;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+@keyframes animate{
+    0%{
+        background-position: 0% 0%;
+    }
+    50%{
+        background-position: 200% 200%;
+    }
+    100%{
+        background-position: 100% 100%;
+    }
+}
+input.display{
+    width: 80%;
+    height: 60px;
+    padding: 24px;
+    border: none;
+    font-size: 28px;
+    text-align: right;
+    color: #ffffff;
+    background: transparent; 
+}
+::placeholder{
+    color: #ffffff;
+}
+button.numbers{
+    color: #ffffff;
+    background-color: #00000034;
+    border: 5px solid #00000000;
+    border-radius: 100%;
+    box-shadow: -8px -8px 15px #ffffff0f;
+}
+button.numbers:hover{
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #00000034;
+    border: 5px solid #00000000;
+    border-radius: 85%;
+    box-shadow: -8px -8px 15px #ffffff40;
+}
+button.operators{
+    color: #ffffff;
+    background-color: #ffffff0a;
+    border: 5px solid #00000000;
+    border-radius: 100%;
+    box-shadow: -8px -8px 15px #00000080;
+}
+button.operators:hover{
+    color: #ffffff;
+    background-color: #ffffff0a;
+    border: 5px solid #00000000;
+    border-radius: 85%;
+    box-shadow: -8px -8px 15px #000000d8;
+}
+button.equal{
+    color: #ffffff;
+    background-color: #ff7300;
+    border: none;
+    border-radius: 100%;
+    box-shadow: -8px -8px 15px #00000094;
+}
+button.equal:hover{
+    color: #fff;
+    background-color: #ff7300;
+    border: none;
+    border-radius: 85%;
+    box-shadow: -8px -8px 15px #000000e8;
+}
