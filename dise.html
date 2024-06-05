@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *{
+                padding: 0;
+            }
+            body{
+                background-image: linear-gradient(to right, #000000, #323841);
+                color: #fff;
+                padding-top: 7px;
+            }
+            div.box{
+                width: 240px;
+                height: 240px;
+                padding-top: 0px;
+                background-color: #00000056;
+                text-align: center;
+                border: 50px solid #01316c; 
+                background-color: #ffffff;
+                animation: animate 1s linear infinite;
+            }
+            button{
+                width: 70px;
+                height: 70px;
+                margin: 20px;
+                font-size: 20px;
+                font-size: 30px;
+                font-weight: bold;
+                color: #fff;
+                border-radius: 100%;
+                box-shadow: 0px 3px 15px #38383980; 
+            }
+            .player1{
+                border: 2px solid red;
+                background-color: red;
+            }
+            .player2{
+                border: 2px solid #00ff00;
+                background-color: #00ff00;
+            }
+            .player3{
+                border: 2px solid blue;
+                background-color: blue;
+            }
+            .player4{
+                border: 2px solid yellow;
+                background-color: yellow;
+            } 
+            .dise{
+                background-color: transparent;
+                border: none;
+                box-shadow: none;
+                transform: translate(-40px);
+            }  
+            .winner{
+                transform: translate(10px, -30px);
+                font-size: 40px;
+                font-weight: 600;
+                color: #ffffff;
+            }
+            table{
+                text-align: center;
+                border: 5px solid #ffffff;
+                transform: translate(650px, -520px);
+            }
+            tr{
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .tro{
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                font-size: 15px;
+                color: black;
+            }
+            .popup{
+                width: 370px;
+                height: 200px;
+                border: 2px solid transparent;
+                border-radius: 100px;
+                background-color: #00000040;
+                backdrop-filter: blur(10px);
+                transform: translate(0px, -400px);
+            }
+            .popup h2{
+                color: gold;
+                font-size: 40px;
+                font-family: 'Times New Roman', Times, serif;
+                font-weight: 550;
+                transform: translate(0px, -80px);
+            }
+            div.winner{
+                margin-top: -60px;
+                font-size: 25px;
+                font-style: italic;
+                color: #fff;
+            }
+            .ok{
+                width: 220px;
+                height: 25px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 20px;
+                font-weight: 600;
+                border: none;
+                border-radius: 15px;
+                background-color: #00ff00;
+            }
+            .popup{
+                visibility: hidden;
+            }
+            .open-popup{
+                visibility: visible;
+            }
+        </style>
+    </head>
+    <body>
+    <center>
+    <div class="box">
+        <div class="element">
+            <button class="player1" id="player1"></button>
+            <button class="player2" id="player2"></button>
+        </div>
+       <div class="element">
+            <button class="player3" id="player3"></button>
+            <button class="player4" id="player4"></button>
+       </div>
+    </div>
+    <button onclick="random()" class="dise">
+        <img src="lu.jpg" height="150px" width="150px">
+    </button>
+        <table cellspacing="20" cellpadding="15">
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+            <tr>
+                <td style="color: red;">Player1</td>
+                <td style="color: red;"><div id="a"></div></td>
+            </tr>
+            <tr>
+                <td style="color: #00ff00;">Player2</td>
+                <td style="color: #00ff00;"><div id="b"></div></td>
+            </tr>
+            <tr>
+                <td style="color: blue">Player3</td>
+                <td style="color: blue;"><div id="c"></div></td>
+            </tr>
+            <tr>
+                <td style="color: yellow;">Player4</td>
+                <td style="color: yellow;"><div id="d"></div></td>
+            </tr>
+        </table>
+        <div class="popup" id="popup">
+            <div class="ad">
+            <h2>&#9813;<br>winner</h2>
+            <div id="winner" class="winner"></div>
+            <button class="ok" id="ok" onclick="closepopup()">ok</button>
+            </div>
+        </div>
+
+        <script>
+            function random(){
+                
+               popup.classList.add("open-popup");
+
+               var a = document.getElementById("player1").innerHTML = Math.floor(Math.random() * 6);
+               var b = document.getElementById("player2").innerHTML = Math.floor(Math.random() * 6);
+               var c = document.getElementById("player3").innerHTML = Math.floor(Math.random() * 6);
+               var d = document.getElementById("player4").innerHTML = Math.floor(Math.random() * 6);
+
+               document.getElementById("a").innerHTML = +a;
+               document.getElementById("b").innerHTML = +b;
+               document.getElementById("c").innerHTML = +c;
+               document.getElementById("d").innerHTML = +d;
+
+               if(a>b && a>c && a>d)
+               {
+                    document.getElementById("winner").innerHTML = "Player 1";
+                    document.getElementById("score").innerHTML = +a;
+               }
+               else if(b>a && b>c && c>d)
+               {
+                    document.getElementById("winner").innerHTML = "Player 2";
+                    document.getElementById("score").innerHTML = +b;
+               }
+               else if(c>a && c>b && c>d)
+               {
+                    document.getElementById("winner").innerHTML = "Player 3";
+                    document.getElementById("score").innerHTML = +c;
+               }
+               else if(d>a && d>b && d>c)
+               {
+                    document.getElementById("winner").innerHTML = "Player 4";
+                    document.getElementById("score").innerHTML = +d;
+               }
+               else{
+                if(a==b)
+                {
+                    document.getElementById("winner").innerHTML = "Player 1 & player 2";
+                }
+                else if(a==c)
+                {
+                    document.getElementById("winner").innerHTML = "Player 1 & player 3";
+                }
+                else if(a==d)
+                {
+                    document.getElementById("winner").innerHTML = "Player 1 & player 4";
+                }
+                else if(b==a)
+                {
+                    document.getElementById("winner").innerHTML = "Player 2 & player 1";
+                }
+                else if(b==c)
+                {
+                    document.getElementById("winner").innerHTML = "Player 2 & player 3";
+                }
+                else if(b==d)
+                {
+                    document.getElementById("winner").innerHTML = "Player 2 & player 4";
+                }
+                else if(c==a)
+                {
+                    document.getElementById("winner").innerHTML = "Player 3 & player 1";
+                }
+                else if(c==b)
+                {
+                    document.getElementById("winner").innerHTML = "Player 3 & player 2";
+                }
+                else if(c==d)
+                {
+                    document.getElementById("winner").innerHTML = "Player 3 & player 4";
+                }
+                else if(d==a)
+                {
+                    document.getElementById("winner").innerHTML = "Player 1 & player 4";
+                }
+                else if(d==b)
+                {
+                    document.getElementById("winner").innerHTML = "Player 1 & player 3";
+                }
+                else if(d==c)
+                {
+                    document.getElementById("winner").innerHTML = "Player 1 & player 3";
+                }
+               }
+            }           
+            function closepopup(){
+                
+                popup.classList.remove("open-popup");
+            }
+        </script>
+    </center>
+    </body>
+</html>
